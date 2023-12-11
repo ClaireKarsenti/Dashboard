@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react';
 import styles from '../ui/dashboard/dashboard.module.css';
 import Navbar from '../ui/dashboard/navbar/navbar';
 import Sidebar from '../ui/dashboard/sidebar/sidebar';
+import Footer from '../ui/dashboard/footer/footer';
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
@@ -12,6 +13,7 @@ export default function Layout({ children }: PropsWithChildren) {
       <div className={styles.content}>
         <Navbar />
         {children}
+        <Footer />
       </div>
     </div>
   );
