@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.85rem;
+  color: var(--textSoft);
+  font-size: 0.75rem;
+}
+
+.logo {
+  font-weight: bold;
+}
