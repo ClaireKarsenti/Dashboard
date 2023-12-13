@@ -1,8 +1,8 @@
 .container {
   background-color: var(--bgSoft);
-  padding: 1.65rem;
+  padding: 1.25rem;
   border-radius: 0.6rem;
-  margin-top: 1.65rem;
+  margin-top: 1.25rem;
 }
 
 .top {
