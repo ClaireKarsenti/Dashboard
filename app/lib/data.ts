@@ -1,12 +1,12 @@
-import { User } from './models';
+import { Product, User } from './models';
 import { connectToDB } from './utils';
 
-export type FetchUsersProps = {
+export type FetchItemsProps = {
   query: string;
   page: number;
 };
 
-export const fetchUsers = async ({ query, page }: FetchUsersProps) => {
+export const fetchUsers = async ({ query, page }: FetchItemsProps) => {
   const regex = new RegExp(query, 'i');
   console.log('page', typeof page);
   const USER_PER_PAGE = 5;

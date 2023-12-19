@@ -1,4 +1,4 @@
-import { fetchUsers, FetchUsersProps } from '@/app/lib/data';
+import { fetchUsers, FetchItemsProps } from '@/app/lib/data';
 import Pagination from '@/app/ui/dashboard/pagination/pagination';
 import Search from '@/app/ui/dashboard/search/search';
 import styles from '@/app/ui/dashboard/users/users.module.css';
@@ -16,11 +16,11 @@ type User = {
   createdAt: string;
 };
 
-type UsersPageProps = {
-  searchParams: FetchUsersProps;
+export type ItemsProps = {
+  searchParams: FetchItemsProps;
 };
 
-export default async function UsersPage({ searchParams }: UsersPageProps) {
+export default async function UsersPage({ searchParams }: ItemsProps) {
   const query = searchParams?.query || '';
   const page = searchParams?.page || 1;
   const { users, count }: any = await fetchUsers({ query, page });
