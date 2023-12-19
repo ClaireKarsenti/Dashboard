@@ -20,8 +20,10 @@ const Search = ({ placeholder }: SearchProps) => {
 
       params.set('page', '1');
 
-      if (e.target.value) {
-        e.target.value.length > 2 && params.set('query', e.target.value);
+      const inputValue = e.target.value;
+
+      if (inputValue) {
+        inputValue.length > 2 && params.set('query', inputValue);
       } else {
         params.delete('query');
       }
