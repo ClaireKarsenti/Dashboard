@@ -23,7 +23,7 @@ type UsersPageProps = {
 export default async function UsersPage({ searchParams }: UsersPageProps) {
   const query = searchParams?.query || '';
   const page = searchParams?.page || 1;
-  const { users }: any = await fetchUsers({ query, page });
+  const { users, count }: any = await fetchUsers({ query, page });
 
   return (
     <div className={styles.container}>
@@ -85,7 +85,7 @@ export default async function UsersPage({ searchParams }: UsersPageProps) {
           )}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination count={count} />
     </div>
   );
 }

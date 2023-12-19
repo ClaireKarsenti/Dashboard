@@ -8,7 +8,7 @@ export type FetchUsersProps = {
 
 export const fetchUsers = async ({ query, page }: FetchUsersProps) => {
   const regex = new RegExp(query, 'i');
-
+  console.log('page', typeof page);
   const USER_PER_PAGE = 5;
 
   try {
@@ -17,7 +17,11 @@ export const fetchUsers = async ({ query, page }: FetchUsersProps) => {
       .limit(USER_PER_PAGE)
       .skip(USER_PER_PAGE * (page - 1));
 
-    return { users };
+    const count = await User.find({
+      username: { $regex: regex },
+    }).countDocuments();
+
+    return { users, count };
   } catch (err) {
     console.log(err);
     throw new Error('❗️Failed to fetch users!');
