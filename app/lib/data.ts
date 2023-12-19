@@ -3,14 +3,19 @@ import { connectToDB } from './utils';
 
 export type FetchUsersProps = {
   query: string;
+  page: number;
 };
 
-export const fetchUsers = async ({ query }: FetchUsersProps) => {
+export const fetchUsers = async ({ query, page }: FetchUsersProps) => {
   const regex = new RegExp(query, 'i');
+
+  const USER_PER_PAGE = 5;
 
   try {
     connectToDB();
-    const users = await User.find({ username: { $regex: regex } });
+    const users = await User.find({ username: { $regex: regex } })
+      .limit(USER_PER_PAGE)
+      .skip(USER_PER_PAGE * (page - 1));
 
     return { users };
   } catch (err) {

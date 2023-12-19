@@ -22,7 +22,8 @@ type UsersPageProps = {
 
 export default async function UsersPage({ searchParams }: UsersPageProps) {
   const query = searchParams?.query || '';
-  const { users }: any = await fetchUsers({ query });
+  const page = searchParams?.page || 1;
+  const { users }: any = await fetchUsers({ query, page });
 
   return (
     <div className={styles.container}>
