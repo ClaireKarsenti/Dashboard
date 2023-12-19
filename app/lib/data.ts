@@ -8,7 +8,6 @@ export type FetchItemsProps = {
 
 export const fetchUsers = async ({ query, page }: FetchItemsProps) => {
   const regex = new RegExp(query, 'i');
-  console.log('page', typeof page);
   const USER_PER_PAGE = 5;
 
   try {
