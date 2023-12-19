@@ -8,7 +8,10 @@ export type FetchItemsProps = {
 
 export const fetchUsers = async ({ query, page }: FetchItemsProps) => {
   const regex = new RegExp(query, 'i');
-  const USER_PER_PAGE = 5;
+  
+  const USER_PER_PAGE = process.env.PRODUCT_PER_PAGE
+    ? parseInt(process.env.PRODUCT_PER_PAGE)
+    : 5;
 
   try {
     connectToDB();
@@ -30,7 +33,9 @@ export const fetchUsers = async ({ query, page }: FetchItemsProps) => {
 export const fetchProducts = async ({ query, page }: FetchItemsProps) => {
   const regex = new RegExp(query, 'i');
 
-  const PRODUCT_PER_PAGE = 5;
+  const PRODUCT_PER_PAGE = process.env.PRODUCT_PER_PAGE
+    ? parseInt(process.env.PRODUCT_PER_PAGE)
+    : 5;
 
   try {
     connectToDB();
