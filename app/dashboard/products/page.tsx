@@ -6,6 +6,7 @@ import NoProduct from '@/public/noproduct.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ItemsProps } from '../users/page';
+import { deleteProduct } from '@/app/lib/action';
 
 type Product = {
   id: string;
@@ -69,9 +70,12 @@ export default async function ProductsPage({ searchParams }: ItemsProps) {
                         View
                       </button>
                     </Link>
-                    <button className={`${styles.button} ${styles.delete}`}>
-                      Delete
-                    </button>
+                    <form action={deleteProduct}>
+                      <input type="hidden" name="id" value={product.id} />
+                      <button className={`${styles.button} ${styles.delete}`}>
+                        Delete
+                      </button>
+                    </form>
                   </div>
                 </td>
               </tr>
