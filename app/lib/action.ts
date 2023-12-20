@@ -1,10 +1,10 @@
 'use server';
 
+import bcrypt from 'bcrypt';
 import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 import { User } from './models';
 import { connectToDB } from './utils';
-import { redirect } from 'next/navigation';
-import bcrypt from 'bcrypt';
 
 export const addUser = async (formData: any) => {
   const { username, email, password, phone, address, isAdmin, isActive } =
