@@ -1,9 +1,10 @@
+import { addProduct } from '@/app/lib/action';
 import styles from '@/app/ui/dashboard/products/addProduct/addProduct.module.css';
 
 export default function AddProductPage() {
   return (
     <div className={styles.container}>
-      <form className={styles.form}>
+      <form className={styles.form} action={addProduct}>
         <input type="text" placeholder="title" name="title" required />
         <select name="cat" id="cat">
           <option value="general">Choose a Category</option>
@@ -26,5 +27,4 @@ export default function AddProductPage() {
       </form>
     </div>
   );
-};
-
+}
