@@ -1,3 +1,4 @@
+import { deleteUser } from '@/app/lib/action';
 import { fetchUsers, FetchItemsProps } from '@/app/lib/data';
 import Pagination from '@/app/ui/dashboard/pagination/pagination';
 import Search from '@/app/ui/dashboard/search/search';
@@ -71,9 +72,12 @@ export default async function UsersPage({ searchParams }: ItemsProps) {
                         View
                       </button>
                     </Link>
-                    <button className={`${styles.button} ${styles.delete}`}>
-                      Delete
-                    </button>
+                    <form action={deleteUser}>
+                      <input type="hidden" name="id" value={user.id} />
+                      <button className={`${styles.button} ${styles.delete}`}>
+                        Delete
+                      </button>
+                    </form>
                   </div>
                 </td>
               </tr>
