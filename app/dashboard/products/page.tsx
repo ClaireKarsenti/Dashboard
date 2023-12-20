@@ -11,7 +11,7 @@ type Product = {
   id: string;
   img?: string;
   title: string;
-  description: string;
+  desc: string;
   price: number;
   createdAt: string;
   stock: number;
@@ -58,7 +58,7 @@ export default async function ProductsPage({ searchParams }: ItemsProps) {
                     {product.title}
                   </div>
                 </td>
-                <td>{product.description}</td>
+                <td>{product.desc}</td>
                 <td>${product.price}</td>
                 <td>{product.createdAt?.toString().slice(4, 15)}</td>
                 <td>{product.stock}</td>
