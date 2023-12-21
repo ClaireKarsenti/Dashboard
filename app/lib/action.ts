@@ -122,3 +122,35 @@ export const deleteProduct = async (formData: any) => {
 
   revalidatePath('/dashboard/products');
 };
+
+export const updateProduct = async (formData: any) => {
+  const { id, title, desc, price, stock, color, size } =
+    Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const updateFields = {
+      title,
+      desc,
+      price,
+      stock,
+      color,
+      size,
+    };
+
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key as keyof typeof updateFields] === '' || undefined) &&
+        delete updateFields[key as keyof typeof updateFields]
+    );
+
+    await Product.findByIdAndUpdate(id, updateFields);
+  } catch (err) {
+    console.log(err);
+    throw new Error('❗️Failed to update product!');
+  }
+
+  revalidatePath('/dashboard/products');
+  redirect('/dashboard/products');
+};
