@@ -62,3 +62,14 @@ export const fetchProducts = async ({ query, page }: FetchItemsProps) => {
     throw new Error('❗️Failed to fetch products!');
   }
 };
+
+export const fetchProduct = async (id: string) => {
+  try {
+    connectToDB();
+    const product = await Product.findById(id);
+    return product;
+  } catch (err) {
+    console.log(err);
+    throw new Error('❗️Failed to fetch user!');
+  }
+};
