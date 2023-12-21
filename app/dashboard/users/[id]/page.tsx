@@ -1,3 +1,4 @@
+import { updateUser } from '@/app/lib/action';
 import { fetchUser } from '@/app/lib/data';
 import styles from '@/app/ui/dashboard/users/singleUser/singleUser.module.css';
 import NoAvatar from '@/public/noavatar.png';
@@ -22,7 +23,7 @@ const SingleUserPage = async ({ params }: SingleUserPageProps) => {
         {user.username}
       </div>
       <div className={styles.formContainer}>
-        <form className={styles.form}>
+        <form className={styles.form} action={updateUser}>
           <input type="hidden" name="id" value={user.id} />
           <label>Username</label>
           <input type="text" name="username" placeholder={user.username} />
