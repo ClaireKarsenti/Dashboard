@@ -8,7 +8,7 @@ export type FetchItemsProps = {
 
 export const fetchUsers = async ({ query, page }: FetchItemsProps) => {
   const regex = new RegExp(query, 'i');
-  
+
   const USER_PER_PAGE = process.env.PRODUCT_PER_PAGE
     ? parseInt(process.env.PRODUCT_PER_PAGE)
     : 5;
@@ -27,6 +27,17 @@ export const fetchUsers = async ({ query, page }: FetchItemsProps) => {
   } catch (err) {
     console.log(err);
     throw new Error('❗️Failed to fetch users!');
+  }
+};
+
+export const fetchUser = async (id: string) => {
+  try {
+    connectToDB();
+    const user = await User.findById(id);
+    return user;
+  } catch (err) {
+    console.log(err);
+    throw new Error('❗️Failed to fetch user!');
   }
 };
 
