@@ -65,7 +65,7 @@ export default async function ProductsPage({ searchParams }: ItemsProps) {
                 <td>{product.stock}</td>
                 <td>
                   <div className={styles.buttons}>
-                    <Link href={`/dashboard/users/${product.id}`}>
+                    <Link href={`/dashboard/products/${product.id}`}>
                       <button className={`${styles.button} ${styles.view}`}>
                         View
                       </button>
