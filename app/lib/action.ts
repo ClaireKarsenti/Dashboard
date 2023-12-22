@@ -76,7 +76,7 @@ export const updateUser = async (formData: any) => {
     await User.findByIdAndUpdate(id, updateFields);
   } catch (err) {
     console.log(err);
-    throw new Error('Failed to update user!');
+    throw new Error('❗️Failed to update user!');
   }
 
   revalidatePath('/dashboard/users');
