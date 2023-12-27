@@ -1,7 +1,8 @@
 import type { Session } from 'next-auth';
+import { NextResponse } from 'next/server';
 
 interface AuthConfig {
-  providers: any[];
+  providers: string[];
   pages: {
     signIn: string;
   };
@@ -27,7 +28,7 @@ export const authConfig: AuthConfig = {
         if (isLoggedIn) return true;
         return false;
       } else if (isLoggedIn) {
-        return Response.redirect(new URL('/dashboard', request.nextUrl));
+        return NextResponse.redirect(new URL('/dashboard', request.nextUrl));
       }
       return true;
     },
