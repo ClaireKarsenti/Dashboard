@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { Product, User } from './models';
 import { connectToDB } from './utils';
+import { signIn } from '../auth';
 
 export const addUser = async (formData: any) => {
   const { username, email, password, phone, address, isAdmin, isActive } =
@@ -153,4 +154,33 @@ export const updateProduct = async (formData: any) => {
 
   revalidatePath('/dashboard/products');
   redirect('/dashboard/products');
+};
+
+type stateType = {
+  userName: string | undefined;
+  password: string | undefined;
+};
+
+export const authenticate = async (
+  previousState: stateType | undefined,
+  formData: FormData
+) => {
+  try {
+    console.log('Received form data:', Object.fromEntries(formData));
+
+    if (!formData || typeof formData !== 'object') {
+      throw new Error('Invalid form data! Missing or not an object.');
+    }
+
+    const { username, password } = Object.fromEntries(formData);
+
+    if (!username || !password) {
+      throw new Error('Invalid form data! Username or password is missing.');
+    }
+
+    await signIn('credentials', { username, password });
+  } catch (err) {
+    console.error('❌', err);
+    return '❗️Wrong Credentials!';
+  }
 };
