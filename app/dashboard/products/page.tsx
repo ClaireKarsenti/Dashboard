@@ -6,7 +6,7 @@ import NoProduct from '@/public/noproduct.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ItemsProps } from '../users/page';
-import { deleteProduct } from '@/app/lib/action';
+import { deleteProduct } from '@/app/lib/actions';
 
 type Product = {
   id: string;
