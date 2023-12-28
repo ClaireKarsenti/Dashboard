@@ -1,3 +1,4 @@
+import { cards } from '../lib/data';
 import Card from '../ui/dashboard/card/card';
 import Chart from '../ui/dashboard/chart/chart';
 import styles from '../ui/dashboard/dashboard.module.css';
@@ -8,7 +9,16 @@ const Dashboard = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.main}>
-        <Card title={"Test"} number={70} change={30} />
+        <div className={styles.cards}>
+          {cards.map((item) => (
+            <Card
+              key={item.id}
+              title={item.title}
+              number={item.number}
+              change={item.change}
+            />
+          ))}
+        </div>
         <Transactions />
         <Chart />
       </div>
