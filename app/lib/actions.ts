@@ -181,6 +181,6 @@ export const authenticate = async (
     await signIn('credentials', { username, password });
   } catch (err) {
     console.error('❌', err);
-    return '❗️Wrong Credentials!';
+    return 'Wrong Credentials!';
   }
 };
