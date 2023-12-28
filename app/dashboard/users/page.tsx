@@ -14,7 +14,7 @@ type User = {
   img?: string;
   isAdmin: boolean;
   isActive: boolean;
-  createdAt: string;
+  createdAt: Date;
 };
 
 export type ItemsProps = {
