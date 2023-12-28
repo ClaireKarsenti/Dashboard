@@ -9,8 +9,8 @@ export type FetchItemsProps = {
 export const fetchUsers = async ({ query, page }: FetchItemsProps) => {
   const regex = new RegExp(query, 'i');
 
-  const USER_PER_PAGE = process.env.PRODUCT_PER_PAGE
-    ? parseInt(process.env.PRODUCT_PER_PAGE)
+  const USER_PER_PAGE = process.env.USER_PER_PAGE
+    ? parseInt(process.env.USER_PER_PAGE)
     : 5;
 
   try {
