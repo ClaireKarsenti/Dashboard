@@ -12,21 +12,25 @@ export default async function Dashboard({ searchParams }: ItemsProps) {
   const page = searchParams?.page || 1;
   const { transactions } = await fetchTransactions({ query, page });
 
+  const getCardUrl = (title: string) => {
+    switch (title) {
+      case 'Total Users':
+        return '/dashboard/users';
+      case 'Stock':
+        return '/dashboard/products';
+      case 'Revenue':
+        return '/dashboard/revenue';
+      default:
+        return '/dashboard';
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.main}>
         <div className={styles.cards}>
           {cards.map((item) => (
-            <Link
-              href={
-                item.title === 'Total Users'
-                  ? '/dashboard/users'
-                  : item.title === 'Stock'
-                  ? '/dashboard/products'
-                  : '/dashboard/revenue'
-              }
-              key={item.id}
-            >
+            <Link href={getCardUrl(item.title)} key={item.id}>
               <Card
                 key={item.id}
                 title={item.title}
