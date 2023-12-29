@@ -1,5 +1,8 @@
+'use client';
+
 import { MdSupervisedUserCircle } from 'react-icons/md';
 import styles from './card.module.css';
+import { usePathname } from 'next/navigation';
 
 export type CardProps = {
   title: string;
@@ -8,6 +11,8 @@ export type CardProps = {
 };
 
 const Card = ({ title, number, change }: CardProps) => {
+  // const pathname = usePathname();
+
   return (
     <div className={styles.container}>
       <MdSupervisedUserCircle size={24} />
