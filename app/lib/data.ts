@@ -1,4 +1,4 @@
-import { Product, User } from './models';
+import { Product, Transaction, User } from './models';
 import { connectToDB } from './utils';
 
 export type FetchItemsProps = {
@@ -71,6 +71,28 @@ export const fetchProduct = async (id: string) => {
   } catch (err) {
     console.log(err);
     throw new Error('❗️Failed to fetch user!');
+  }
+};
+
+export const fetchTransactions = async ({ query, page }: FetchItemsProps) => {
+  const regex = new RegExp(query, 'i');
+
+  const TRANSACTION_PER_PAGE = process.env.TRANSACTION_PER_PAGE
+    ? parseInt(process.env.TRANSACTION_PER_PAGE)
+    : 5;
+
+  try {
+    connectToDB();
+    const count = await Transaction.find({
+      username: { $regex: regex },
+    }).countDocuments();
+    const transactions = await Transaction.find({ username: { $regex: regex } })
+      .limit(TRANSACTION_PER_PAGE)
+      .skip(TRANSACTION_PER_PAGE * (page - 1));
+    return { count, transactions };
+  } catch (err) {
+    console.log(err);
+    throw new Error('❗️Failed to fetch transactions!');
   }
 };
 
