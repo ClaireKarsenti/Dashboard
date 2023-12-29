@@ -1,11 +1,16 @@
-import { cards } from '../lib/data';
+import { cards, fetchTransactions } from '../lib/data';
 import Card from '../ui/dashboard/card/card';
 import Chart from '../ui/dashboard/chart/chart';
 import styles from '../ui/dashboard/dashboard.module.css';
 import RightBar from '../ui/dashboard/rightbar/rightbar';
 import Transactions from '../ui/dashboard/transactions/transactions';
+import { ItemsProps } from './users/page';
 
-const Dashboard = () => {
+export default async function Dashboard({ searchParams }: ItemsProps) {
+  const query = searchParams?.query || '';
+  const page = searchParams?.page || 1;
+  const { transactions } = await fetchTransactions({ query, page });
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.main}>
@@ -19,7 +24,7 @@ const Dashboard = () => {
             />
           ))}
         </div>
-        <Transactions />
+        <Transactions transactions={transactions} />
         <Chart />
       </div>
       <div className={styles.side}>
@@ -27,6 +32,4 @@ const Dashboard = () => {
       </div>
     </div>
   );
-};
-
-export default Dashboard;
+}

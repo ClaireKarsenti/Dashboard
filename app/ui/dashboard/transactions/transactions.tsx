@@ -1,10 +1,31 @@
+'use client';
+
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import Pagination from '../pagination/pagination';
 import styles from './transactions.module.css';
 
-const Transactions = () => {
+type Transaction = {
+  id: string;
+  username: string;
+  status: string;
+  createdAt?: Date;
+  amount: number;
+};
+
+export default function Transactions({
+  transactions,
+  count,
+}: {
+  transactions: Transaction[];
+  count?: number;
+}) {
+  const pathname = usePathname();
+  const isDashboardPage = pathname === '/dashboard';
+
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Latest Transactions</h2>
+      {isDashboardPage && <h2 className={styles.title}>Latest Transactions</h2>}
       <table className={styles.table}>
         <thead>
           <tr>
@@ -15,92 +36,46 @@ const Transactions = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt="no avatar image"
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.pending}`}>
-                Pending
-              </span>
-            </td>
-            <td>14.02.{new Date().getFullYear() + 1}</td>
-            <td>$3.200</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.done}`}>Done</span>
-            </td>
-            <td>14.02.{new Date().getFullYear() + 1}</td>
-            <td>$3.200</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.cancelled}`}>
-                Cancelled
-              </span>
-            </td>
-            <td>14.02.{new Date().getFullYear() + 1}</td>
-            <td>$3.200</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.pending}`}>
-                Pending
-              </span>
-            </td>
-            <td>14.02.{new Date().getFullYear() + 1}</td>
-            <td>$3.200</td>
-          </tr>
+          {transactions && transactions.length > 0 ? (
+            transactions?.map((transaction: Transaction) => (
+              <tr key={transaction.id}>
+                <td>
+                  <div className={styles.user}>
+                    <Image
+                      src="/noavatar.png"
+                      alt="no avatar image"
+                      width={40}
+                      height={40}
+                      className={styles.userImage}
+                    />
+                    {transaction.username}
+                  </div>
+                </td>
+                <td>
+                  <span
+                    className={`${styles.status} ${
+                      transaction.status === 'cancelled'
+                        ? styles.cancelled
+                        : transaction.status === 'pending'
+                        ? styles.pending
+                        : styles.done
+                    }`}
+                  >
+                    {transaction.status}
+                  </span>
+                </td>
+                <td>{transaction.createdAt?.toString().slice(4, 15)}</td>
+                <td>${transaction.amount}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={4}>No transactions found</td>
+            </tr>
+          )}
         </tbody>
       </table>
+      {!isDashboardPage && count !== undefined && <Pagination count={count} />}
     </div>
   );
-};
-
-export default Transactions;
+}

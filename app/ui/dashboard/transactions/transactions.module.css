@@ -4,6 +4,19 @@
   border-radius: 0.6rem;
 }
 
+.container_page {
+  background-color: var(--bgSoft);
+  padding: 1.25rem;
+  border-radius: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .title {
   margin-bottom: 1.25rem;
   font-weight: 200;
