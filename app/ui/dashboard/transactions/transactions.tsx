@@ -6,7 +6,7 @@ import Pagination from '../pagination/pagination';
 import styles from './transactions.module.css';
 
 type Transaction = {
-  id: string;
+  _id: string;
   username: string;
   status: string;
   createdAt?: Date;
@@ -38,7 +38,7 @@ export default function Transactions({
         <tbody>
           {transactions && transactions.length > 0 ? (
             transactions?.map((transaction: Transaction) => (
-              <tr key={transaction.id}>
+              <tr key={transaction._id}>
                 <td>
                   <div className={styles.user}>
                     <Image
