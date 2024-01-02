@@ -11,6 +11,14 @@ export default async function Dashboard({ searchParams }: ItemsProps) {
   const query = searchParams?.query || '';
   const page = searchParams?.page || 1;
   const { transactions } = await fetchTransactions({ query, page });
+  
+  const newTransactionsArray = transactions.map((item) => {
+    const { _id, ...rest } = item._doc; // Destructure _id from _doc
+    return {
+      _id: _id.toString(),
+      ...rest,
+    };
+  });
 
   const getCardUrl = (title: string) => {
     switch (title) {
@@ -40,7 +48,7 @@ export default async function Dashboard({ searchParams }: ItemsProps) {
             </Link>
           ))}
         </div>
-        <Transactions transactions={transactions} />
+        <Transactions transactions={newTransactionsArray} />
         <Chart />
       </div>
       <div className={styles.side}>
