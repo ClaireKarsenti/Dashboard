@@ -7,7 +7,7 @@ import NoAvatar from '@/public/noavatar.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
-type User = {
+export type User = {
   id: string;
   username: string;
   email: string;
