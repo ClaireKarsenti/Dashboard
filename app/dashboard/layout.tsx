@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react';
-import styles from '../ui/dashboard/dashboard.module.css';
-import Navbar from '../ui/dashboard/navbar/navbar';
-import Sidebar from '../ui/dashboard/sidebar/sidebar';
-import Footer from '../ui/dashboard/footer/footer';
+import styles from '@/src/ui/dashboard/dashboard.module.css';
+import Navbar from '@/src/ui/dashboard/navbar/navbar';
+import Sidebar from '@/src/ui/dashboard/sidebar/sidebar';
+import Footer from '@/src/ui/dashboard/footer/footer';
 
 export default function Layout({ children }: PropsWithChildren) {
   return (

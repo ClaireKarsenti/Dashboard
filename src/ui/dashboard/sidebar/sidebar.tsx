@@ -1,3 +1,5 @@
+import { auth, signOut } from '@/src/lib/auth';
+import NoAvatar from '@/public/noavatar.png';
 import Image from 'next/image';
 import {
   MdAnalytics,
@@ -13,8 +15,6 @@ import {
 } from 'react-icons/md';
 import MenuLink from './menuLink/menuLink';
 import styles from './sidebar.module.css';
-import { auth, signOut } from '@/app/auth';
-import NoAvatar from '@/public/noavatar.png';
 
 const menuItems = [
   {
@@ -81,22 +81,24 @@ const menuItems = [
 
 const Sidebar = async () => {
   const { user } = await auth();
-  
+
   return (
     <div className={styles.container}>
-      <div className={styles.user}>
-        <Image
-          className={styles.userImage}
-          src={user.img || NoAvatar}
-          alt=""
-          width="50"
-          height="50"
-        />
-        <div className={styles.userDetail}>
-          <span className={styles.username}>{user.username}</span>
-          <span className={styles.userTitle}>Administrator</span>
+      {user && (
+        <div className={styles.user}>
+          <Image
+            className={styles.userImage}
+            src={user?.img || NoAvatar}
+            alt=""
+            width="50"
+            height="50"
+          />
+          <div className={styles.userDetail}>
+            <span className={styles.username}>{user?.username}</span>
+            <span className={styles.userTitle}>Administrator</span>
+          </div>
         </div>
-      </div>
+      )}
       <ul className={styles.list}>
         {menuItems.map((category, index) => (
           <li key={index}>

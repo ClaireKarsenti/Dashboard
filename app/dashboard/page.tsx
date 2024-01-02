@@ -1,17 +1,17 @@
 import Link from 'next/link';
-import { cards, fetchTransactions } from '../lib/data';
-import Card from '../ui/dashboard/card/card';
-import Chart from '../ui/dashboard/chart/chart';
-import styles from '../ui/dashboard/dashboard.module.css';
-import RightBar from '../ui/dashboard/rightbar/rightbar';
-import Transactions from '../ui/dashboard/transactions/transactions';
+import { cards, fetchTransactions } from '@/src/lib/data';
+import Card from '@/src/ui/dashboard/card/card';
+import Chart from '@/src/ui/dashboard/chart/chart';
+import styles from '@/src/ui/dashboard/dashboard.module.css';
+import RightBar from '@/src/ui/dashboard/rightbar/rightbar';
+import Transactions from '@/src/ui/dashboard/transactions/transactions';
 import { ItemsProps } from './users/page';
 
 export default async function Dashboard({ searchParams }: ItemsProps) {
   const query = searchParams?.query || '';
   const page = searchParams?.page || 1;
   const { transactions } = await fetchTransactions({ query, page });
-  
+
   const newTransactionsArray = transactions.map((item) => {
     const { _id, ...rest } = item._doc; // Destructure _id from _doc
     return {

@@ -1,5 +1,5 @@
-import styles from '@/app/ui/login/login.module.css';
-import LoginForm from '../ui/login/loginForm/loginForm';
+import styles from '@/src/ui/login/login.module.css';
+import LoginForm from '@/src/ui/login/loginForm/loginForm';
 
 export default function LoginPage() {
   return (

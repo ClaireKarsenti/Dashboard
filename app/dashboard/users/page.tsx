@@ -1,8 +1,8 @@
-import { deleteUser } from '@/app/lib/actions';
-import { fetchUsers, FetchItemsProps } from '@/app/lib/data';
-import Pagination from '@/app/ui/dashboard/pagination/pagination';
-import Search from '@/app/ui/dashboard/search/search';
-import styles from '@/app/ui/dashboard/users/users.module.css';
+import { deleteUser } from '@/src/lib/actions';
+import { fetchUsers, FetchItemsProps } from '@/src/lib/data';
+import Pagination from '@/src/ui/dashboard/pagination/pagination';
+import Search from '@/src/ui/dashboard/search/search';
+import styles from '@/src/ui/dashboard/users/users.module.css';
 import NoAvatar from '@/public/noavatar.png';
 import Image from 'next/image';
 import Link from 'next/link';

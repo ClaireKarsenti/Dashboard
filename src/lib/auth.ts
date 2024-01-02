@@ -1,9 +1,9 @@
+import { User as UserModel } from '@/src/lib/models';
+import { connectToDB } from '@/src/lib/utils';
+import { authConfig } from '@/pages/api/auth/[...nextAuth]';
+import bcrypt from 'bcrypt';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { authConfig } from './authconfig';
-import { connectToDB } from './lib/utils';
-import { User as UserModel } from './lib/models';
-import bcrypt from 'bcrypt';
 
 const login = async (credentials: any) => {
   try {

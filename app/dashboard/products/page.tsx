@@ -1,12 +1,12 @@
-import { fetchProducts } from '@/app/lib/data';
-import Pagination from '@/app/ui/dashboard/pagination/pagination';
-import styles from '@/app/ui/dashboard/products/products.module.css';
-import Search from '@/app/ui/dashboard/search/search';
+import { fetchProducts } from '@/src/lib/data';
+import Pagination from '@/src/ui/dashboard/pagination/pagination';
+import styles from '@/src/ui/dashboard/products/products.module.css';
+import Search from '@/src/ui/dashboard/search/search';
 import NoProduct from '@/public/noproduct.jpg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ItemsProps } from '../users/page';
-import { deleteProduct } from '@/app/lib/actions';
+import { deleteProduct } from '@/src/lib/actions';
 
 type Product = {
   id: string;

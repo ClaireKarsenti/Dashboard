@@ -1,5 +1,5 @@
-import { addProduct } from '@/app/lib/actions';
-import styles from '@/app/ui/dashboard/products/addProduct/addProduct.module.css';
+import { addProduct } from '@/src/lib/actions';
+import styles from '@/src/ui/dashboard/products/addProduct/addProduct.module.css';
 
 export default function AddProductPage() {
   return (

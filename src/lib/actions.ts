@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { Product, User } from './models';
 import { connectToDB } from './utils';
-import { signIn } from '../auth';
+import { signIn } from './auth';
 
 export const addUser = async (formData: any) => {
   const { username, email, password, phone, address, isAdmin, isActive } =
