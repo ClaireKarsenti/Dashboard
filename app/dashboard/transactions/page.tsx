@@ -9,12 +9,20 @@ export default async function TransactionsPage({ searchParams }: ItemsProps) {
   const page = searchParams?.page || 1;
   const { transactions, count } = await fetchTransactions({ query, page });
 
+  const newTransactionsArray = transactions.map((item) => {
+    const { _id, ...rest } = item._doc; // Destructure _id from _doc
+    return {
+      _id: _id.toString(),
+      ...rest,
+    };
+  });
+
   return (
     <div className={styles.container_page}>
       <div className={styles.top}>
         <Search placeholder="Search a transaction..." />
       </div>
-      <Transactions transactions={transactions} count={count} />
+      <Transactions transactions={newTransactionsArray} count={count} />
     </div>
   );
 }
