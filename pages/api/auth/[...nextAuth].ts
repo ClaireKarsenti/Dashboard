@@ -1,8 +1,9 @@
 import type { Session } from 'next-auth';
+import { Provider } from 'next-auth/providers';
 import { NextResponse } from 'next/server';
 
 interface AuthConfig {
-  providers: string[];
+  providers: Provider[];
   pages: {
     signIn: string;
   };

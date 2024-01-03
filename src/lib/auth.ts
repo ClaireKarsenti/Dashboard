@@ -38,11 +38,12 @@ export const { signIn, signOut, auth } = NextAuth({
   ...authConfig,
   providers: [
     CredentialsProvider({
+      name: 'Credentials',
       credentials: {
         username: { label: 'username', type: 'text', placeholder: 'username' },
         password: { label: 'password', type: 'password' },
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
         try {
           const user = await login(credentials);
           return user;
