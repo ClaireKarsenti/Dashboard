@@ -1,8 +1,8 @@
 import { deleteUser } from '@/src/lib/actions';
 import { fetchUsers, FetchItemsProps } from '@/src/lib/data';
-import Pagination from '@/src/ui/dashboard/pagination/pagination';
-import Search from '@/src/ui/dashboard/search/search';
-import styles from '@/src/ui/dashboard/users/users.module.css';
+import Pagination from '@/src/components/layout/dashboard/pagination/pagination';
+import Search from '@/src/components/layout/dashboard/search/search';
+import styles from '@/src/components/ui/dashboard/users/users.module.css';
 import NoAvatar from '@/public/noavatar.png';
 import Image from 'next/image';
 import Link from 'next/link';

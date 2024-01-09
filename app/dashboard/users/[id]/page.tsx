@@ -1,6 +1,6 @@
 import { updateUser } from '@/src/lib/actions';
 import { fetchUser } from '@/src/lib/data';
-import styles from '@/src/ui/dashboard/users/singleUser/singleUser.module.css';
+import styles from '@/src/components/ui/dashboard/users/singleUser/singleUser.module.css';
 import NoAvatar from '@/public/noavatar.png';
 import Image from 'next/image';
 

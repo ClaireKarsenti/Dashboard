@@ -1,7 +1,7 @@
 import { fetchTransactions } from '@/src/lib/data';
-import Search from '@/src/ui/dashboard/search/search';
-import Transactions from '@/src/ui/dashboard/transactions/transactions';
-import styles from '@/src/ui/dashboard/transactions/transactions.module.css';
+import Search from '@/src/components/layout/dashboard/search/search';
+import Transactions from '@/src/components/layout/dashboard/transactions/transactions';
+import styles from '@/src/components/ui/dashboard/transactions/transactions.module.css';
 import { ItemsProps } from '../users/page';
 
 export default async function TransactionsPage({ searchParams }: ItemsProps) {

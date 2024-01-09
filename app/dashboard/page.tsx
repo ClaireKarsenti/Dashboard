@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { cards, fetchTransactions } from '@/src/lib/data';
-import Card from '@/src/ui/dashboard/card/card';
-import Chart from '@/src/ui/dashboard/chart/chart';
-import styles from '@/src/ui/dashboard/dashboard.module.css';
-import RightBar from '@/src/ui/dashboard/rightbar/rightbar';
-import Transactions from '@/src/ui/dashboard/transactions/transactions';
+import Card from '@/src/components/layout/dashboard/card/card';
+import Chart from '@/src/components/layout/dashboard/chart/chart';
+import styles from '@/src/components/layout/dashboard/dashboard.module.css';
+import RightBar from '@/src/components/layout/dashboard/rightbar/rightbar';
+import Transactions from '@/src/components/layout/dashboard/transactions/transactions';
 import { ItemsProps } from './users/page';
 
 export default async function Dashboard({ searchParams }: ItemsProps) {
