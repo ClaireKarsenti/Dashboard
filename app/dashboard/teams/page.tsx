@@ -2,7 +2,7 @@ import { deleteUser } from '@/src/lib/actions';
 import { fetchUsers } from '@/src/lib/data';
 import Pagination from '@/src/components/layout/dashboard/pagination/pagination';
 import Search from '@/src/components/layout/dashboard/search/search';
-import styles from '@/src/components/ui/dashboard/users/users.module.css';
+import styles from '@/src/components/layout/dashboard/users/users.module.css';
 import NoAvatar from '@/public/noavatar.png';
 import { User, ItemsProps } from '../users/page';
 import Image from 'next/image';
