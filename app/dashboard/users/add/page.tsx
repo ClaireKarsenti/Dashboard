@@ -1,5 +1,5 @@
 import { addUser } from '@/src/lib/actions';
-import styles from '@/src/components/ui/dashboard/users/addUser/addUser.module.css';
+import styles from '@/src/components/layout/dashboard/users/addUser/addUser.module.css';
 
 export default function AddUserPage() {
   return (
