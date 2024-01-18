@@ -1,6 +1,6 @@
 import { fetchProducts } from '@/src/lib/data';
 import Pagination from '@/src/components/layout/dashboard/pagination/pagination';
-import styles from '@/src/components/ui/dashboard/products/products.module.css';
+import styles from '@/src/components/layout/dashboard/products/products.module.css';
 import Search from '@/src/components/layout/dashboard/search/search';
 import NoProduct from '@/public/noproduct.jpg';
 import Image from 'next/image';

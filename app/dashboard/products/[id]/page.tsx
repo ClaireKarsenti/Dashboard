@@ -1,6 +1,6 @@
 import { updateProduct } from '@/src/lib/actions';
 import { fetchProduct } from '@/src/lib/data';
-import styles from '@/src/components/ui/dashboard/products/singleProduct/singleProduct.module.css';
+import styles from '@/src/components/layout/dashboard/products/singleProduct/singleProduct.module.css';
 import NoAvatar from '@/public/noavatar.png';
 import Image from 'next/image';
 
