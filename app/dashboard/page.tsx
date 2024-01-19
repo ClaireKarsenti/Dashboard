@@ -51,7 +51,9 @@ export default async function Dashboard({ searchParams }: ItemsProps) {
         <Link href="/dashboard/transactions">
           <Transactions transactions={newTransactionsArray} />
         </Link>
-        <Chart />
+        <Link href="/dashboard/reports">
+          <Chart />
+        </Link>
       </div>
       <div className={styles.side}>
         <RightBar />
