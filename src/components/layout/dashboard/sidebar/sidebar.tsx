@@ -15,6 +15,7 @@ import {
 } from 'react-icons/md';
 import MenuLink from './menuLink/menuLink';
 import styles from './sidebar.module.css';
+import Link from 'next/link';
 
 const menuItems = [
   {
@@ -85,19 +86,21 @@ const Sidebar = async () => {
   return (
     <div className={styles.container}>
       {user && (
-        <div className={styles.user}>
-          <Image
-            className={styles.userImage}
-            src={user?.img || NoAvatar}
-            alt=""
-            width="50"
-            height="50"
-          />
-          <div className={styles.userDetail}>
-            <span className={styles.username}>{user?.username}</span>
-            <span className={styles.userTitle}>Administrator</span>
+        <Link href="/dashboard">
+          <div className={styles.user}>
+            <Image
+              className={styles.userImage}
+              src={user?.img || NoAvatar}
+              alt=""
+              width="50"
+              height="50"
+            />
+            <div className={styles.userDetail}>
+              <span className={styles.username}>{user?.username}</span>
+              <span className={styles.userTitle}>Administrator</span>
+            </div>
           </div>
-        </div>
+        </Link>
       )}
       <ul className={styles.list}>
         {menuItems.map((category, index) => (
