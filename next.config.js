@@ -15,8 +15,6 @@ const nextConfig = {
       },
     ],
   },
-
-  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -24,10 +22,6 @@ const nextConfig = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
-  },
-  experimental: {
-    serverComponents: true,
-    serverActions: true,
   },
 };
 
