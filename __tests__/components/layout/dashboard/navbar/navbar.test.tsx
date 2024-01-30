@@ -19,14 +19,11 @@ describe('Navbar Component', () => {
     const searchInput = screen.getByPlaceholderText('Search...');
     expect(searchInput).toBeInTheDocument();
 
-    const searchIcon = screen.getByTestId('search-icon');
-    const chatIcon = screen.getByTestId('chat-icon');
-    const notificationsIcon = screen.getByTestId('notifications-icon');
-    const publicIcon = screen.getByTestId('public-icon');
+    const iconNames = ['search', 'chat', 'notifications', 'public'];
 
-    expect(searchIcon).toBeInTheDocument();
-    expect(chatIcon).toBeInTheDocument();
-    expect(notificationsIcon).toBeInTheDocument();
-    expect(publicIcon).toBeInTheDocument();
+    iconNames.forEach((iconName) => {
+      const icon = screen.getByTestId(`${iconName}-icon`);
+      expect(icon).toBeInTheDocument();
+    });
   });
 });
