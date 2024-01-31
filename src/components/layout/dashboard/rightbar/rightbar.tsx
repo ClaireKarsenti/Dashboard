@@ -26,7 +26,7 @@ const RightBar = () => {
             Reprehenderit eius libero perspiciatis recusandae possimus.
           </p>
           <button className={styles.button}>
-            <MdPlayCircleFilled />
+            <MdPlayCircleFilled data-testid="play-icon" />
             Watch
           </button>
         </div>
@@ -44,7 +44,7 @@ const RightBar = () => {
             Reprehenderit eius libero perspiciatis recusandae possimus.
           </p>
           <button className={styles.button}>
-            <MdReadMore />
+            <MdReadMore data-testid="readMore-icon" />
             Learn
           </button>
         </div>

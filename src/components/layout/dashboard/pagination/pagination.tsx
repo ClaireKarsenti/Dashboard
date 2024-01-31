@@ -1,6 +1,7 @@
 'use client';
 
 import styles from './pagination.module.css';
+// @ts-ignore
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 type PaginationProps = {
@@ -12,7 +13,7 @@ const Pagination = ({ count }: PaginationProps) => {
   const { replace } = useRouter();
   const pathname = usePathname();
 
-  const page = searchParams.get('page') || '1';
+  const page = searchParams?.get('page') || '1';
 
   const params = new URLSearchParams(searchParams);
   const ITEM_PER_PAGE = 5;
